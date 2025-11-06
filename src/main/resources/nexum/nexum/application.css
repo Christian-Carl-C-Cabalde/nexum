@@ -1,0 +1,42 @@
+.root {
+    -fx-background-color: white;
+}
+
+.signInBtn, .goBackBtn {
+    -fx-background-color: transparent;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-text-fill: black;
+}
+
+.signInBtn:hover, .goBackBtn:hover {
+    -fx-cursor: hand;
+    -fx-underline: true;
+}
+
+.searchBtn, .continueBtn, .resetBtn {
+    -fx-font-size: 14px;
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+.searchBtn:hover, .resetBtn:hover, .continueBtn:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #333;
+}
+
+.emailInput, .confirmNewPasswordInput, .newPasswordInput {
+    -fx-background-color: #E9E9E9;
+    -fx-font-family: "Arial";
+}
+
+.findYourAccountLabel, .verifyOtpLabel, .resetPasswordLabel {
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-font-family: "System";
+    -fx-font-weight: bold;
+}
+
+.orLabel, .weveSentAnOtpLabel {
+    -fx-font-family: "Arial";
+}
