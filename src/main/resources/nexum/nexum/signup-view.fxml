@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="209.0" layoutY="92.0" text="Nexum">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font></Label>
+      <Button layoutX="236.0" layoutY="455.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: gray; -fx-cursor: hand;" text="Log In" underline="true" />
+       <Button layoutX="126.0" layoutY="414.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="346.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Create" />
+      <TextField layoutX="126.0" layoutY="324.0" prefHeight="30.0" prefWidth="346.0" promptText="Email..." />
+      <PasswordField layoutX="126.0" layoutY="365.0" prefHeight="30.0" prefWidth="346.0" promptText="Password..." />
+      <TextField layoutX="126.0" layoutY="284.0" prefHeight="30.0" prefWidth="346.0" promptText="Last Name..." />
+      <TextField layoutX="126.0" layoutY="246.0" prefHeight="30.0" prefWidth="346.0" promptText="Middle Name..." />
+      <TextField layoutX="126.0" layoutY="206.0" prefHeight="30.0" prefWidth="346.0" promptText="First Name..." />
+      <ImageView fitHeight="67.0" fitWidth="111.0" layoutX="260.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../assets/image/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
