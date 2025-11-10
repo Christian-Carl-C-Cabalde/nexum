@@ -9,11 +9,11 @@
    <children>
       <!-- ✅ Sidebar VBox - anchored properly -->
       <VBox fx:id="sidebar" alignment="CENTER" prefWidth="70" spacing="20" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <Pane prefHeight="51.0" prefWidth="70.0">
+         <Pane prefHeight="50.0" prefWidth="70.0">
             <children>
       
                <!-- Nexum Logo -->
-               <ImageView fitHeight="15.0" fitWidth="22.0" layoutX="24.0" layoutY="30.0" preserveRatio="true">
+               <ImageView fitHeight="15.0" fitWidth="21.0" layoutX="25.0" layoutY="18.0" preserveRatio="true">
                   <image>
                      <Image url="@image/NEXUM LOGO 1.png" />
                   </image>
@@ -22,7 +22,7 @@
          </Pane>
 
          <!-- Top spacer -->
-         <Region prefHeight="0.0" prefWidth="70.0" VBox.vgrow="ALWAYS" />
+         <Region VBox.vgrow="ALWAYS" />
 
          <!-- Buttons in the CENTER -->
          <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
@@ -72,7 +72,7 @@
       </VBox>
 
       <!-- Main content placeholder -->
-      <StackPane fx:id="mainContent" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="mainContent" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       </StackPane>
 
    </children>
