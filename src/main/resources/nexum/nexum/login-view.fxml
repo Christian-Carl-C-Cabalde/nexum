@@ -19,7 +19,7 @@
       <PasswordField layoutX="127.0" layoutY="294.0" prefHeight="30.0" prefWidth="346.0" promptText="Password..." />
       <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="280.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../assets/image/logo.png" />
+            <Image url="@image/logo.png" />
          </image>
       </ImageView>
    </children>

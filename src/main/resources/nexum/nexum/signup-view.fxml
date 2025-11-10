@@ -20,7 +20,7 @@
       <TextField layoutX="126.0" layoutY="206.0" prefHeight="30.0" prefWidth="346.0" promptText="First Name..." />
       <ImageView fitHeight="67.0" fitWidth="111.0" layoutX="260.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../assets/image/logo.png" />
+            <Image url="@image/logo.png" />
          </image>
       </ImageView>
    </children>

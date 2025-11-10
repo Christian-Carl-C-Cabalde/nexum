@@ -48,26 +48,26 @@
 }
 
 .sidebar-item ImageView {
-    -fx-fit-width: 24;               /* consistent icon size */
+    -fx-fit-width: 24;
     -fx-fit-height: 24;
-    -fx-preserve-ratio: true;        /* keeps icon from stretching */
+    -fx-preserve-ratio: true;
 }
 
 .sidebar-item Label {
     -fx-text-fill: #333;
     -fx-font-size: 14px;
-    -fx-alignment: CENTER_LEFT;      /* aligns text neatly with icon */
+    -fx-alignment: CENTER_LEFT;
 }
 
-/* === SIDEBAR PANEL STYLE / ROUNDED CORNERS + SHADOW === */
+/* ✅ SIDEBAR BACKGROUND PANEL — Rounded only on left side + shadow */
 .sidebar {
     -fx-background-color: #EDEDED;
-    -fx-background-radius: 20;
-    -fx-border-radius: 20;
-    -fx-effect: dropshadow(black, rgba(0, 0, 0, 0.15), 20, 0, 0, 4);
+    -fx-background-radius: 20 0 0 20; /* rounded LEFT edge only */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 16, 0.3, 0, 2);
+    -fx-padding: 20 10;
 }
 
-/* === SIDEBAR BUTTON STYLE / ICON-ONLY BUTTONS === */
+/* ✅ ICON BUTTON */
 .sidebar-button {
     -fx-background-color: transparent;
     -fx-padding: 10;
@@ -75,15 +75,17 @@
 }
 
 .sidebar-button:hover {
-    -fx-background-color: #DADADA; /* hover highlight */
+    -fx-background-color: #DADADA;
+    -fx-background-radius: 10;
 }
 
-/* === ACTIVE STATE FOR SELECTED ICON === */
+/* ✅ When a sidebar menu item is active */
 .sidebar-button:selected {
-    -fx-background-color: #C8C8C8; /* slight darker background */
+    -fx-background-color: #C8C8C8;
+    -fx-background-radius: 10;
 }
 
-/* Optional: Force icons to consistent size */
+/* ✅ Force icon size inside sidebar-menu button */
 .sidebar-button .image-view {
     -fx-fit-width: 24;
     -fx-fit-height: 24;
