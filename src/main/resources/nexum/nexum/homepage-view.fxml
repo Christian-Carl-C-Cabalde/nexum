@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="922.0" styleClass="sidebar" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="591.0" prefWidth="68.0">
+         <children>
+            <Pane prefHeight="594.0" prefWidth="12.0">
+               <children>
+                  <ImageView fitHeight="18.0" fitWidth="23.0" layoutX="24.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/image/NEXUM%20LOGO%201.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="15.0" layoutY="172.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="sidebar-button">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/image/HOME%20ICON.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="15.0" layoutY="230.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="sidebar-button">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/image/PLUS%20ICON.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="16.0" layoutY="288.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="sidebar-button">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/image/NOTIFICATION%20ICON.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="16.0" layoutY="341.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="sidebar-button">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/image/PROFILE%20ICON.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="15.0" layoutY="548.0" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="sidebar-button">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/image/LOGOUT%20ICON.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

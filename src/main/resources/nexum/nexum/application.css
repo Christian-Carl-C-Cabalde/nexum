@@ -40,3 +40,51 @@
 .orLabel, .weveSentAnOtpLabel {
     -fx-font-family: "Arial";
 }
+
+.sidebar-item {
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 10;
+    -fx-padding: 8 20 8 20;
+}
+
+.sidebar-item ImageView {
+    -fx-fit-width: 24;               /* consistent icon size */
+    -fx-fit-height: 24;
+    -fx-preserve-ratio: true;        /* keeps icon from stretching */
+}
+
+.sidebar-item Label {
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;      /* aligns text neatly with icon */
+}
+
+/* === SIDEBAR PANEL STYLE / ROUNDED CORNERS + SHADOW === */
+.sidebar {
+    -fx-background-color: #EDEDED;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(black, rgba(0, 0, 0, 0.15), 20, 0, 0, 4);
+}
+
+/* === SIDEBAR BUTTON STYLE / ICON-ONLY BUTTONS === */
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+    -fx-cursor: hand;
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #DADADA; /* hover highlight */
+}
+
+/* === ACTIVE STATE FOR SELECTED ICON === */
+.sidebar-button:selected {
+    -fx-background-color: #C8C8C8; /* slight darker background */
+}
+
+/* Optional: Force icons to consistent size */
+.sidebar-button .image-view {
+    -fx-fit-width: 24;
+    -fx-fit-height: 24;
+}
