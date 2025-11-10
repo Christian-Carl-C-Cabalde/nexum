@@ -4,76 +4,74 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="591.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="591.0" prefWidth="922.0" stylesheets="application.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
 
-   <children>
-      <!-- ✅ Sidebar VBox - anchored properly -->
-      <VBox fx:id="sidebar" alignment="CENTER" prefWidth="70" spacing="20" styleClass="sidebar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <Pane prefHeight="50.0" prefWidth="70.0">
-            <children>
-      
-               <!-- Nexum Logo -->
-               <ImageView fitHeight="15.0" fitWidth="21.0" layoutX="25.0" layoutY="18.0" preserveRatio="true">
-                  <image>
-                     <Image url="@image/NEXUM LOGO 1.png" />
-                  </image>
-               </ImageView>
-            </children>
-         </Pane>
+   <!-- ✅ Sidebar in the LEFT region -->
+   <left>
+      <VBox fx:id="sidebar" alignment="CENTER" prefWidth="70" spacing="20" styleClass="sidebar">
+         <children>
 
-         <!-- Top spacer -->
-         <Region VBox.vgrow="ALWAYS" />
+            <Pane prefHeight="43.0" prefWidth="70.0">
+               <children>
+                  <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="26.0" layoutY="20.0" preserveRatio="true">
+                     <image>
+                        <Image url="@image/NEXUM LOGO 1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
 
-         <!-- Buttons in the CENTER -->
-         <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
-            <graphic>
-               <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
-                  <image><Image url="@image/HOME ICON.png" /></image>
-               </ImageView>
-            </graphic>
-         </Button>
+            <Region VBox.vgrow="ALWAYS" />
 
-         <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
-            <graphic>
-               <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
-                  <image><Image url="@image/PLUS ICON.png" /></image>
-               </ImageView>
-            </graphic>
-         </Button>
+            <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
+                     <image><Image url="@image/HOME ICON.png" /></image>
+                  </ImageView>
+               </graphic>
+            </Button>
 
-         <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
-            <graphic>
-               <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
-                  <image><Image url="@image/NOTIFICATION ICON.png" /></image>
-               </ImageView>
-            </graphic>
-         </Button>
+            <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
+                     <image><Image url="@image/PLUS ICON.png" /></image>
+                  </ImageView>
+               </graphic>
+            </Button>
 
-         <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
-            <graphic>
-               <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
-                  <image><Image url="@image/PROFILE ICON.png" /></image>
-               </ImageView>
-            </graphic>
-         </Button>
+            <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
+                     <image><Image url="@image/NOTIFICATION ICON.png" /></image>
+                  </ImageView>
+               </graphic>
+            </Button>
 
-         <!-- Bottom spacer -->
-         <Region VBox.vgrow="ALWAYS" />
+            <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
+                     <image><Image url="@image/PROFILE ICON.png" /></image>
+                  </ImageView>
+               </graphic>
+            </Button>
 
-         <!-- Logout stays at bottom -->
-         <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
-            <graphic>
-               <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
-                  <image><Image url="@image/LOGOUT ICON.png" /></image>
-               </ImageView>
-            </graphic>
-         </Button>
+            <Region VBox.vgrow="ALWAYS" />
 
+            <Button style="-fx-background-color: transparent;" styleClass="sidebar-button">
+               <graphic>
+                  <ImageView fitHeight="22" fitWidth="22" preserveRatio="true">
+                     <image><Image url="@image/LOGOUT ICON.png" /></image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+         </children>
       </VBox>
+   </left>
 
-      <!-- Main content placeholder -->
-      <StackPane fx:id="mainContent" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      </StackPane>
+   <!-- ✅ Main Content in CENTER -->
+   <center>
+      <StackPane fx:id="mainContent" style="-fx-background-color: white;" />
+   </center>
 
-   </children>
-</AnchorPane>
+</BorderPane>

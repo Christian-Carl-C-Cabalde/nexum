@@ -62,9 +62,9 @@
 /* ✅ SIDEBAR BACKGROUND PANEL — Rounded only on left side + shadow */
 .sidebar {
     -fx-background-color: #EDEDED;
-    -fx-background-radius: 20;
-    -fx-border-radius: 20;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 15, 0.2, 0, 2);
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.2, 0, 2);
 }
 
 /* ✅ ICON BUTTON */
@@ -86,7 +86,8 @@
 }
 
 /* ✅ Force icon size inside sidebar-menu button */
-.sidebar-button .image-view {
+.sidebar-button ImageView {
     -fx-fit-width: 24;
     -fx-fit-height: 24;
+    -fx-preserve-ratio: true;
 }
