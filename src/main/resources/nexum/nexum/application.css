@@ -1,93 +1,100 @@
-.root {
-    -fx-background-color: white;
-}
-
-.signInBtn, .goBackBtn {
-    -fx-background-color: transparent;
-    -fx-font-family: "Arial";
-    -fx-font-size: 14px;
-    -fx-text-fill: black;
-}
-
-.signInBtn:hover, .goBackBtn:hover {
-    -fx-cursor: hand;
-    -fx-underline: true;
-}
-
-.searchBtn, .continueBtn, .resetBtn {
-    -fx-font-size: 14px;
-    -fx-background-color: black;
-    -fx-text-fill: white;
-}
-
-.searchBtn:hover, .resetBtn:hover, .continueBtn:hover {
-    -fx-cursor: hand;
-    -fx-background-color: #333;
-}
-
-.emailInput, .confirmNewPasswordInput, .newPasswordInput {
-    -fx-background-color: #E9E9E9;
-    -fx-font-family: "Arial";
-}
-
-.findYourAccountLabel, .verifyOtpLabel, .resetPasswordLabel {
-    -fx-alignment: center;
-    -fx-text-fill: black;
-    -fx-font-family: "System";
-    -fx-font-weight: bold;
-}
-
-.orLabel, .weveSentAnOtpLabel {
-    -fx-font-family: "Arial";
-}
-
-.sidebar-item {
-    -fx-alignment: CENTER_LEFT;
-    -fx-spacing: 10;
-    -fx-padding: 8 20 8 20;
-}
-
-.sidebar-item ImageView {
-    -fx-fit-width: 24;
-    -fx-fit-height: 24;
-    -fx-preserve-ratio: true;
-}
-
-.sidebar-item Label {
-    -fx-text-fill: #333;
-    -fx-font-size: 14px;
-    -fx-alignment: CENTER_LEFT;
-}
-
-/* ✅ SIDEBAR BACKGROUND PANEL — Rounded only on left side + shadow */
+/* --- Global Sidebar Styles --- */
+/* (Leaving these styles in case other FXML files use them) */
 .sidebar {
-    -fx-background-color: #EDEDED;
-    -fx-background-radius: 50;
-    -fx-border-radius: 50;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.2, 0, 2);
+    -fx-background-color: #FFFFFF;
+     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 5, 0); /* Shadow on the right */
+     /* Added rounded corners */
+     -fx-background-radius: 0 15px 15px 0;
 }
 
-/* ✅ ICON BUTTON */
+/* Base style for sidebar buttons */
 .sidebar-button {
     -fx-background-color: transparent;
-    -fx-padding: 10;
-    -fx-cursor: hand;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 12px;
 }
 
 .sidebar-button:hover {
-    -fx-background-color: #DADADA;
-    -fx-background-radius: 10;
+    -fx-background-color: #f0f2f5; /* Light gray on hover */
+    -fx-background-radius: 8px;
 }
 
-/* ✅ When a sidebar menu item is active */
-.sidebar-button:selected {
-    -fx-background-color: #C8C8C8;
-    -fx-background-radius: 10;
+/* Style for the selected button */
+.sidebar-button-selected {
+    -fx-background-color: #f0f2f5; /* Light gray background */
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 12px;
 }
 
-/* ✅ Force icon size inside sidebar-menu button */
-.sidebar-button ImageView {
-    -fx-fit-width: 24;
-    -fx-fit-height: 24;
-    -fx-preserve-ratio: true;
+/* ===== HOMEPAGE-PROFILE.FXML ===== */
+.profile-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0.5, 0, 0);
+
+    /* Responsive Width: It will try to be 450px, but can shrink to 350px or grow to 600px */
+    -fx-min-width: 350px;
+    -fx-pref-width: 450px;
+    -fx-max-width: 600px;
+    -fx-pref-height: 650px;
+    -fx-max-height: 1000px;
+}
+
+/* Style for the profile picture ImageView.
+  I removed the '-fx-clip' property from here because it's
+  not valid CSS and it's now handled correctly in the FXML file.
+*/
+.profile-picture {
+    /* -fx-clip property removed */
+}
+
+.profile-name {
+    -fx-font-size: 1.4em;
+    -fx-font-weight: bold;
+}
+
+.profile-email {
+    -fx-font-size: 0.9em;
+    -fx-text-fill: #65676b;
+}
+
+/* Edit Profile Button */
+.edit-profile-button {
+    -fx-background-color: #f7f7f7;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+
+    /* -fx-pref-width: 100% is not a valid JavaFX CSS property.
+      I've changed it to a fixed pref-width to match the max-width
+      and the FXML.
+    */
+    -fx-pref-width: 350px;
+    -fx-max-width: 350px; /* This ensures it doesn't get wider */
+}
+
+.edit-profile-button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Base style for unselected tab */
+.tab-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #65676b;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px 20px;
+}
+
+/* Style for the selected tab */
+.tab-button-selected {
+    -fx-background-color: #e4e6eb;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px 20px;
 }
