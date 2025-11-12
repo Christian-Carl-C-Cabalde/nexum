@@ -4,16 +4,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<!--
-  Restored the <left> sidebar and original pane size.
-  Kept the <clip> for the circular profile picture.
--->
-<BorderPane prefHeight="591.0" prefWidth="922.0"
-            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="nexum.nexum.HomepageProfileController">
+<!-- This file is linked to HomepageProfileController.java -->
+<BorderPane prefHeight="591.0" prefWidth="922.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.ProfileController">
 
     <left>
         <!-- This VBox uses the .sidebar style from application.css -->
@@ -84,62 +79,63 @@
                     </font>
                 </Label>
 
-                <!-- This VBox uses .profile-card from application.css -->
-                <VBox alignment="TOP_CENTER" spacing="20.0" styleClass="profile-card">
+                <!--
+                  This StackPane holds both the profile card and the edit card.
+                  It stacks them on top of each other so we can toggle visibility.
+                -->
+                <StackPane>
                     <children>
-                        <HBox alignment="CENTER" spacing="20.0">
+                        <!--
+                          CARD 1: The Profile Card View
+                          We've given it an fx:id to control it from Java.
+                        -->
+                        <VBox fx:id="profileCardView" alignment="TOP_CENTER" spacing="20.0" styleClass="profile-card">
                             <children>
-                                <!-- Uses .profile-picture from application.css -->
-                                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-picture">
-                                    <image>
-                                        <Image url="@image/PROFILE ICON.png" />
-                                    </image>
-                                    <!--
-                                      This clip tag is the correct way to make the
-                                      ImageView circular. The center/radius must match
-                                      half of the fitHeight/fitWidth.
-                                    -->
-                                    <clip>
-                                        <Circle centerX="50.0" centerY="50.0" radius="50.0" />
-                                    </clip>
-                                </ImageView>
-                                <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                <HBox alignment="CENTER" spacing="20.0">
                                     <children>
-                                        <!-- Uses .profile-name from application.css -->
-                                        <Label styleClass="profile-name" text="Christian Carl C. Cabalde" />
-                                        <!-- Uses .profile-email from application.css -->
-                                        <Label styleClass="profile-email" text="cccabalde50858@liceo.edu.ph" />
+                                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-picture">
+                                            <image>
+                                                <Image url="@image/PROFILE ICON.png" />
+                                            </image>
+                                            <clip>
+                                                <Circle centerX="50.0" centerY="50.0" radius="50.0" />
+                                            </clip>
+                                        </ImageView>
+                                        <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <children>
+                                                <Label styleClass="profile-name" text="Christian Carl C. Cabalde" />
+                                                <Label styleClass="profile-email" text="cccabalde50858@liceo.edu.ph" />
+                                            </children>
+                                        </VBox>
                                     </children>
-                                </VBox>
-                            </children>
-                        </HBox>
+                                </HBox>
 
-                        <!-- Uses .edit-profile-button from application.css -->
-                        <Button fx:id="editProfileButton" maxWidth="350.0" styleClass="edit-profile-button" text="Edit Profile" />
+                                <!-- This button calls "onEditProfileClick" -->
+                                <Button fx:id="editProfileButton" onAction="#onEditProfileClick" maxWidth="350.0" styleClass="edit-profile-button" text="Edit Profile" />
+
+                                <HBox alignment="CENTER" spacing="10.0">
+                                    <children>
+                                        <Button fx:id="postsButton" onAction="#onPostsClick" styleClass="tab-button-selected" text="Posts" />
+                                        <Button fx:id="savedButton" onAction="#onSavedClick" styleClass="tab-button" text="Saved" />
+                                    </children>
+                                </HBox>
+
+                                <Separator maxWidth="350.0" />
+                            </children>
+                            <padding>
+                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                            </padding>
+                        </VBox>
 
                         <!--
-                          Separator *after* the Edit Profile button
+                          CARD 2: The Edit Profile View
+                          We use fx:include to load your other FXML file.
+                          We give it an fx:id and make it invisible by default.
                         -->
-                        <Separator maxWidth="350.0" />
+                        <fx:include fx:id="editProfileView" source="edit-profile.fxml" visible="false" />
 
-                        <HBox alignment="CENTER" spacing="10.0">
-                            <children>
-                                <!-- Uses .tab-button-selected from application.css -->
-                                <Button fx:id="postsButton" onAction="#onPostsClick" styleClass="tab-button-selected" text="Posts" />
-                                <!-- Uses .tab-button from application.css -->
-                                <Button fx:id="savedButton" onAction="#onSavedClick" styleClass="tab-button" text="Saved" />
-                            </children>
-                        </HBox>
-
-                        <!--
-                          Second separator below the tabs
-                        -->
-                        <Separator maxWidth="350.0" />
                     </children>
-                    <padding>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                    </padding>
-                </VBox>
+                </StackPane>
             </children>
         </VBox>
     </center>

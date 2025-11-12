@@ -26,7 +26,9 @@
     -fx-padding: 8px 12px;
 }
 
-/* ===== HOMEPAGE-PROFILE.FXML ===== */
+
+
+/* ===== PROFILE.FXML ===== */
 .profile-card {
     -fx-background-color: white;
     -fx-background-radius: 15px;
@@ -97,4 +99,87 @@
     -fx-font-size: 1.1em;
     -fx-background-radius: 5px;
     -fx-padding: 5px 20px;
+}
+
+
+
+
+/* ===== EDIT-PROFILE.FXML ===== */
+/* Background for the entire modal window */
+.modal-background {
+    /* * UPDATED FOR TRANSPARENCY
+     * Was: -fx-background-color: white;
+     * Now: White, but at 85% opacity (0.85)
+     */
+    -fx-background-color: rgba(255, 255, 255, 0.85);
+
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 20, 0, 0, 0);
+    -fx-pref-width: 400px;
+
+    /* Added a subtle border to complete the "glass" look */
+    -fx-border-color: rgba(255, 255, 255, 0.5);
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;
+}
+
+/* 'X' Close button in the corner */
+.modal-close-button {
+    -fx-background-color: #f0f2f5;
+    -fx-text-fill: #65676b;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.0em;
+    -fx-background-radius: 50px; /* Makes it a circle */
+    -fx-padding: 4px 10px;
+}
+.modal-close-button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Label above each text field (e.g., "First Name") */
+.modal-form-label {
+    -fx-font-size: 0.9em;
+    -fx-text-fill: #65676b;
+}
+
+/* The text field where the user's data is shown */
+.modal-form-field {
+    /* Removes all borders and background */
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+
+    /* Styles the text itself */
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+
+    /* Makes the field read-only */
+    -fx-editable: false;
+
+    /* Prevents the highlight box when clicked */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* The separator line under each field */
+.modal-form-separator {
+    -fx-pref-height: 1px;
+    -fx-background-color: #e0e0e0;
+}
+
+/* The "Change Password" button */
+.modal-change-password-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #65676b;
+    -fx-font-weight: bold;
+    -fx-font-size: 0.9em;
+    -fx-background-radius: 5px;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px 10px;
+}
+.modal-change-password-button:hover {
+    -fx-background-color: #f0f2f5;
 }
