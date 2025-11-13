@@ -1,13 +1,24 @@
 package nexum.nexum;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class LoginController {
+
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private PasswordField passwordField;
 
     @FXML
     private Button loginBtn;
@@ -18,36 +29,52 @@ public class LoginController {
     @FXML
     private Button signUpBtn;
 
-    @FXML
-    private void handleLoginClick() throws IOException {
-        // Load homepage.fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage.fxml"));
-        Scene scene = new Scene(loader.load());
+    /**
+     * Helper method to switch scenes.
+     */
+    private void loadScene(ActionEvent event, String fxmlFile, String title) {
+        try {
+            Parent view = FXMLLoader.load(getClass().getResource(fxmlFile));
+            Scene scene = new Scene(view);
 
-        Stage stage = (Stage) loginBtn.getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+            // Get the stage from the event source
+            Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+
+            currentStage.setScene(scene);
+            currentStage.setTitle(title);
+            currentStage.centerOnScreen();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    /**
+     * Called when the "Login" button is clicked.
+     * This will load the homepage.fxml scene.
+     */
     @FXML
-    private void handleForgotPasswordClick() throws IOException {
-        // Load forgot-password.fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("forgot-password.fxml"));
-        Scene scene = new Scene(loader.load());
+    void handleLoginClick(ActionEvent event) {
+        // Add your login verification logic here...
+        // For example: if (authService.login(emailField.getText(), passwordField.getText())) { ... }
 
-        Stage stage = (Stage) forgotPasswordBtn.getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        // On successful login, load the homepage
+        loadScene(event, "homepage.fxml", "Nexum - Home");
     }
 
+    /**
+     * Called when the "Forgot Password?" button is clicked.
+     */
     @FXML
-    private void handleSignUpClick() throws IOException {
-        // Load signup.fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("signup.fxml"));
-        Scene scene = new Scene(loader.load());
+    void handleForgotPasswordClick(ActionEvent event) {
+        loadScene(event, "forgot-password.fxml", "Forgot Password");
+    }
 
-        Stage stage = (Stage) signUpBtn.getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+    /**
+     * Called when the "Sign Up" button is clicked.
+     */
+    @FXML
+    void handleSignUpClick(ActionEvent event) {
+        loadScene(event, "signup.fxml", "Sign Up");
     }
 }

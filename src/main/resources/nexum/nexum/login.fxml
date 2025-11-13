@@ -1,60 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="nexum.nexum.LoginController"
-            prefHeight="600.0" prefWidth="600.0">
-
+<!--
+  Root VBox to center the content card in the entire window.
+  It's linked to the new CSS file: login.css
+-->
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" styleClass="root-pane" stylesheets="@styles/login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx/fxml/1" fx:controller="nexum.nexum.LoginController">
     <children>
-        <!-- App Logo -->
-        <ImageView layoutX="280.0" layoutY="129.0" fitHeight="41.0" fitWidth="39.0"
-                   pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@image/logo.png"/>
-            </image>
-        </ImageView>
 
-        <!-- App Title -->
-        <Label layoutX="214.0" layoutY="148.0" text="Nexum">
-            <font>
-                <Font name="System Bold" size="50.0"/>
-            </font>
-        </Label>
+        <!--
+          Content Card: A nested VBox for the white card
+          with a shadow and rounded corners.
+        -->
+        <VBox alignment="CENTER" maxWidth="400.0" spacing="15.0" styleClass="content-card">
+            <children>
+                <!-- App Logo -->
+                <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@image/logo.png" />
+                    </image>
+                </ImageView>
 
-        <!-- Email Field -->
-        <TextField fx:id="emailField" layoutX="127.0" layoutY="246.0"
-                   prefHeight="30.0" prefWidth="346.0" promptText="Email..."/>
+                <!-- App Title -->
+                <Label styleClass="title-label" text="Nexum" />
+                <Label styleClass="subtitle-label" text="Log in to your account" />
 
-        <!-- Password Field -->
-        <PasswordField fx:id="passwordField" layoutX="127.0" layoutY="294.0"
-                       prefHeight="30.0" prefWidth="346.0" promptText="Password..."/>
+                <!-- Email Field -->
+                <TextField fx:id="emailField" promptText="Email..." styleClass="form-field" />
 
-        <!-- Login Button -->
-        <Button fx:id="loginBtn" layoutX="127.0" layoutY="341.0"
-                prefHeight="30.0" prefWidth="346.0"
-                style="-fx-background-color: black; -fx-text-fill: white;"
-                text="Login" onAction="#handleLoginClick"/>
+                <!-- Password Field -->
+                <PasswordField fx:id="passwordField" promptText="Password..." styleClass="form-field" />
 
-        <!-- Forgot Password Button -->
-        <Button fx:id="forgotPasswordBtn" layoutX="237.0" layoutY="387.0"
-                prefHeight="30.0" prefWidth="125.0"
-                style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: gray; -fx-cursor: hand;"
-                text="Forgot Password?" underline="true"
-                onAction="#handleForgotPasswordClick"/>
+                <!-- Login Button -->
+                <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#handleLoginClick" styleClass="login-button" text="Login" />
 
-        <!-- OR Label -->
-        <Label layoutX="294.0" layoutY="427.0" text="or"/>
+                <!-- Forgot Password Button -->
+                <Button fx:id="forgotPasswordBtn" mnemonicParsing="false" onAction="#handleForgotPasswordClick" styleClass="link-button" text="Forgot Password?" />
 
-        <!-- Sign Up Button -->
-        <Button fx:id="signUpBtn" layoutX="237.0" layoutY="454.0"
-                prefHeight="30.0" prefWidth="125.0"
-                style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: gray; -fx-cursor: hand;"
-                text="Sign Up" underline="true"
-                onAction="#handleSignUpClick"/>
+                <!-- "Don't have an account?" Link -->
+                <HBox alignment="CENTER" spacing="5.0">
+                    <children>
+                        <Label styleClass="footer-label" text="Don't have an account?" />
+                        <Button fx:id="signUpBtn" mnemonicParsing="false" onAction="#handleSignUpClick" styleClass="link-button" text="Sign Up" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin> <!-- *** CORRECTION IS HERE *** -->
+                </HBox>
+
+            </children>
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+        </VBox>
+
     </children>
-</AnchorPane>
+</VBox>

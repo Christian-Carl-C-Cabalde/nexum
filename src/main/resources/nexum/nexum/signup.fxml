@@ -1,47 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="nexum.nexum.SignUpController"
-            prefHeight="600.0" prefWidth="600.0">
+<!--
+  Root VBox to center the content card.
+  It's linked to the new CSS file.
+-->
+<VBox alignment="CENTER" prefHeight="700.0" prefWidth="800.0" styleClass="root-pane" stylesheets="@styles/signup.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.SignUpController">
+    <children>
 
-    <!-- App Logo -->
-    <ImageView layoutX="260.0" layoutY="42.0" fitHeight="67.0" fitWidth="111.0"
-               pickOnBounds="true" preserveRatio="true">
-        <image>
-            <Image url="@image/logo.png"/>
-        </image>
-    </ImageView>
+        <!--
+          Content Card: A nested VBox for the white card
+          with a shadow and rounded corners.
+        -->
+        <VBox alignment="CENTER" maxWidth="400.0" spacing="15.0" styleClass="content-card">
+            <children>
+                <!-- App Logo -->
+                <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@image/logo.png" />
+                    </image>
+                </ImageView>
 
-    <!-- App Title -->
-    <Label layoutX="209.0" layoutY="92.0" text="Nexum">
-        <font>
-            <Font name="System Bold" size="50.0"/>
-        </font>
-    </Label>
+                <!-- App Title -->
+                <Label styleClass="title-label" text="Nexum" />
+                <Label styleClass="subtitle-label" text="Create your account" />
 
-    <!-- Name Fields -->
-    <TextField layoutX="126.0" layoutY="206.0" prefHeight="30.0" prefWidth="346.0" promptText="First Name..."/>
-    <TextField layoutX="126.0" layoutY="246.0" prefHeight="30.0" prefWidth="346.0" promptText="Middle Name..."/>
-    <TextField layoutX="126.0" layoutY="284.0" prefHeight="30.0" prefWidth="346.0" promptText="Last Name..."/>
+                <!-- Form Fields -->
+                <TextField promptText="First Name..." styleClass="form-field" />
+                <TextField promptText="Middle Name..." styleClass="form-field" />
+                <TextField promptText="Last Name..." styleClass="form-field" />
+                <TextField promptText="Email..." styleClass="form-field" />
+                <PasswordField promptText="Password..." styleClass="form-field" />
 
-    <!-- Email and Password Fields -->
-    <TextField layoutX="126.0" layoutY="324.0" prefHeight="30.0" prefWidth="346.0" promptText="Email..."/>
-    <PasswordField layoutX="126.0" layoutY="365.0" prefHeight="30.0" prefWidth="346.0" promptText="Password..."/>
+                <!-- Create Account Button -->
+                <Button fx:id="createBtn" mnemonicParsing="false" styleClass="create-button" text="Create" />
 
-    <!-- Create Account Button -->
-    <Button fx:id="createBtn" layoutX="126.0" layoutY="414.0" prefHeight="30.0" prefWidth="346.0"
-            text="Create" style="-fx-background-color: black; -fx-text-fill: white;" mnemonicParsing="false"/>
+                <!-- "Already have an account?" Link -->
+                <HBox alignment="CENTER" spacing="5.0">
+                    <children>
+                        <Label styleClass="footer-label" text="Already have an account?" />
+                        <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#handleLoginClick" styleClass="login-button" text="Log In" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </HBox>
 
-    <!-- Log In Button -->
-    <Button fx:id="loginBtn" layoutX="236.0" layoutY="455.0" prefHeight="30.0" prefWidth="125.0"
-            text="Log In" underline="true"
-            style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: gray; -fx-cursor: hand;"
-            onAction="#handleLoginClick" mnemonicParsing="false"/>
+            </children>
+            <padding>
+                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+            </padding>
+        </VBox>
 
-</AnchorPane>
+    </children>
+</VBox>
