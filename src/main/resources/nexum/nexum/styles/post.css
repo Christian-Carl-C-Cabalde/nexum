@@ -1,0 +1,110 @@
+/* --- Main Container --- */
+.main-container {
+    -fx-background-color: white; /* White background */
+    -fx-background-radius: 20;
+    -fx-border-color: #ddd; /* Light gray border */
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+}
+
+/* --- Top Bar --- */
+.title-label {
+    -fx-text-fill: black; /* Black text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.close-button-pane {
+    -fx-background-color: #eee; /* Light gray circle */
+    -fx-background-radius: 50;
+    -fx-padding: 6;
+    -fx-cursor: hand;
+}
+.close-button-pane:hover {
+    -fx-background-color: #ddd; /* Darker gray on hover */
+}
+.close-icon {
+    -fx-stroke: black; /* Black 'X' */
+    -fx-stroke-width: 2;
+}
+
+/* --- User Info --- */
+.user-icon-pane {
+    -fx-background-color: #e0e0e0; /* Gray circle */
+    -fx-background-radius: 50;
+    -fx-padding: 8;
+    -fx-min-width: 44;
+    -fx-min-height: 44;
+    -fx-max-width: 44;
+    -fx-max-height: 44;
+}
+.user-icon-svg {
+    -fx-fill: black; /* Black icon */
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.username-label {
+    -fx-text-fill: black; /* Black text */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+.user-email-label {
+    -fx-text-fill: #555; /* Dark gray text */
+    -fx-font-size: 12px;
+}
+
+/* --- Separator --- */
+.separator-line {
+    -fx-background-color: #eee; /* Light gray line */
+    -fx-pref-height: 1px;
+}
+.separator-line .line {
+    -fx-border-color: transparent;
+}
+
+/* --- Text Area (UPDATED) --- */
+.thread-textarea {
+    -fx-background-color: #f0f0f0; /* Gray background for the box */
+    -fx-background-radius: 10; /* Rounded corners for the gray box */
+    -fx-text-fill: black; /* Black text when typing */
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #888; /* Gray prompt text */
+    -fx-border-color: #ddd; /* Light border */
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-wrap-text: true;
+}
+.thread-textarea .content {
+    -fx-background-color: #f0f0f0; /* Match the text area background */
+    -fx-background-radius: 10;
+}
+
+/* --- Bottom Bar --- */
+.image-icon-pane {
+    -fx-padding: 5;
+    -fx-cursor: hand;
+}
+.image-icon-svg {
+    -fx-fill: black; /* Black icon */
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+.image-icon-pane:hover .image-icon-svg {
+    -fx-fill: #555; /* Darker on hover */
+}
+
+.post-button {
+    -fx-background-color: black; /* Black background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 20;
+    -fx-padding: 8 20 8 20;
+    -fx-cursor: hand;
+}
+.post-button:hover {
+    -fx-background-color: #333; /* Dark gray on hover */
+}

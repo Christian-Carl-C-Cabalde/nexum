@@ -3,67 +3,94 @@ package nexum.nexum;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.paint.Color;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
 public class ProfileController {
 
-    // This method is called when the "Edit Profile" button is clicked
+    // --- FXML Elements from profile.fxml ---
     @FXML
-    private void onEditProfileClick(ActionEvent event) {
-        try {
-            // Load the FXML file for the edit profile modal
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("edit-profile.fxml"));
-            Parent root = fxmlLoader.load();
+    private StackPane profileRoot; // The root StackPane from profile.fxml
 
-            // Create a new stage (window) for the modal
-            Stage modalStage = new Stage();
+    @FXML
+    private Button editProfileButton;
 
-            // Set the stage to be a modal, so it blocks interaction with the main window
-            modalStage.initModality(Modality.APPLICATION_MODAL);
+    @FXML
+    private Button postsBtn;
 
-            // Remove the window decorations (title bar, close buttons, etc.)
-            modalStage.initStyle(StageStyle.TRANSPARENT);
+    @FXML
+    private Button savedBtn;
 
-            // Create the scene and make the background transparent
-            Scene scene = new Scene(root);
-            scene.setFill(Color.TRANSPARENT);
-
-            // Add the stylesheet to the scene
-            try {
-                scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-            } catch (NullPointerException e) {
-                System.err.println("Error: 'application.css' not found for modal.");
-            }
-
-            modalStage.setScene(scene);
-
-            // Show the modal and wait for it to be closed
-            modalStage.showAndWait();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Error loading edit-profile.fxml. Check file name and controller.");
+    /**
+     * This method is called by JavaFX after the FXML file is loaded.
+     * We use it to set the default active tab.
+     */
+    @FXML
+    public void initialize() {
+        // Set "Posts" as the active button by default
+        if (postsBtn != null) {
+            postsBtn.getStyleClass().add("tab-button-selected");
         }
     }
 
-    // Stub method for "Posts" button
+    // --- Modal Logic ---
+
+    /**
+     * Called when the "Edit Profile" button is clicked.
+     * This method loads and displays the edit-profile.fxml modal.
+     */
     @FXML
-    private void onPostsClick(ActionEvent event) {
-        System.out.println("Posts button clicked!");
-        // Add logic for showing posts
+    void showEditProfileModal(ActionEvent event) {
+        try {
+            // Load the modal FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("edit-profile.fxml"));
+            VBox modalRoot = loader.load(); // This is the root VBox from edit-profile.fxml
+
+            // Add the loaded modal to the StackPane. It will appear on top, centered.
+            profileRoot.getChildren().add(modalRoot);
+
+            // Disable the "Edit Profile" button so you can't open multiple modals
+            editProfileButton.setDisable(true);
+
+            // --- Pass a reference to this controller to the modal ---
+            // This allows the modal to tell us when it's closed.
+            EditProfileController modalController = loader.getController();
+            modalController.setParentController(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    // Stub method for "Saved" button
+    /**
+     * This method is called BY the modal controller when it closes.
+     */
+    public void closeModal() {
+        // Re-enable the "Edit Profile" button
+        editProfileButton.setDisable(false);
+        // The modal's controller already removes itself from the scene.
+    }
+
+    // --- Tab Logic ---
+
     @FXML
-    private void onSavedClick(ActionEvent event) {
-        System.out.println("Saved button clicked!");
-        // Add logic for showing saved items
+    void onPostsClick(ActionEvent event) {
+        System.out.println("Posts tab clicked");
+        // Add logic to show posts
+        // Use the correct class from your profile.css
+        postsBtn.getStyleClass().add("tab-button-selected");
+        savedBtn.getStyleClass().remove("tab-button-selected");
+    }
+
+    @FXML
+    void onSavedClick(ActionEvent event) {
+        System.out.println("Saved tab clicked");
+        // Add logic to show saved items
+        // Use the correct class from your profile.css
+        savedBtn.getStyleClass().add("tab-button-selected");
+        postsBtn.getStyleClass().remove("tab-button-selected");
     }
 }

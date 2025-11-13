@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<!--
+  This file will be loaded *inside* the homepage.
+  It links to its own stylesheet, "post-style.css"
+-->
+
+<VBox maxHeight="400" maxWidth="600" minHeight="300" minWidth="400" prefHeight="350" prefWidth="500" spacing="12" styleClass="main-container" stylesheets="@styles/post.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!--
+      Note: I added min/max width/height so it doesn't get
+      too small or too big if the main window resizes.
+    -->
+
+    <padding>
+        <Insets bottom="15" left="20" right="20" top="15" />
+    </padding>
+
+    <!-- Top Bar: Title and Close Button -->
+    <BorderPane>
+        <center>
+            <Label styleClass="title-label" text="Post and Connect" />
+        </center>
+        <right>
+            <StackPane styleClass="close-button-pane" BorderPane.alignment="CENTER">
+                <SVGPath content="M 0,0 L 10,10 M 10,0 L 0,10" styleClass="close-icon" />
+            </StackPane>
+        </right>
+    </BorderPane>
+
+    <!-- User Info Section -->
+    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="user-info-box">
+        <children>
+            <StackPane styleClass="user-icon-pane">
+                <SVGPath content="M 12 12 A 4 4 0 1 1 12 4 A 4 4 0 0 1 12 12 M 12 14 C 8.68 14 6 15.79 6 18 L 18 18 C 18 15.79 15.32 14 12 14" styleClass="user-icon-svg" />
+            </StackPane>
+            <VBox>
+                <children>
+                    <Label styleClass="username-label" text="User2" />
+                    <Label styleClass="user-email-label" text="user123@liceo.edu.ph" />
+                </children>
+            </VBox>
+        </children>
+    </HBox>
+
+    <!-- Separator Line -->
+    <Separator styleClass="separator-line" />
+
+    <!-- Main Text Area -->
+    <TextArea fx:id="threadTextArea" promptText="Write a thread..." styleClass="thread-textarea" VBox.vgrow="ALWAYS" />
+
+    <!-- Bottom Bar: Image Icon and Post Button -->
+    <BorderPane>
+        <left>
+            <StackPane styleClass="image-icon-pane">
+                <SVGPath content="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" styleClass="image-icon-svg" />
+            </StackPane>
+        </left>
+        <right>
+            <Button fx:id="postButton" styleClass="post-button" text="Post" />
+        </right>
+    </BorderPane>
+
+</VBox>

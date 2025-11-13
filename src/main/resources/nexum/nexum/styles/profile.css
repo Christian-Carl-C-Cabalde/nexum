@@ -1,0 +1,54 @@
+/* profile.css — only for main profile page content */
+
+.main-profile {
+    -fx-background-color: #f0f2f5;
+}
+
+.profile-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.profile-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.profile-email {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+}
+
+/* Buttons in profile content */
+.edit-profile-button {
+    -fx-background-color: #1abc9c;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+}
+
+.tab-button {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: black;
+    -fx-background-radius: 5;
+    -fx-padding: 6 20 6 20;
+    -fx-cursor: hand;
+}
+
+.tab-button:hover {
+    -fx-background-color: #87CEEB;
+    -fx-text-fill: white;
+}
+
+.tab-button-selected {
+    -fx-background-color: #87CEEB;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+}
+
+.edit-profile-button {
+    -fx-background-color: #1abc9c;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+}

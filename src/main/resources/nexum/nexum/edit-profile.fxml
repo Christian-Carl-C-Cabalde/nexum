@@ -5,124 +5,91 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 
-<!-- This file is linked to EditProfileController.java -->
+<!--
+  This is the modal window.
+  It is controlled by EditProfileController.java
+  It is styled by edit-profile.css
+-->
 
-<VBox fx:id="modalRoot" alignment="TOP_CENTER" spacing="20.0" styleClass="modal-background" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.EditProfileController">
-    <padding>
-        <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
-    </padding>
+<VBox fx:id="modalRoot" alignment="TOP_CENTER" maxHeight="615.0" maxWidth="380.0" minHeight="615.0" minWidth="380.0" prefHeight="615.0" prefWidth="380.0" spacing="15.0" styleClass="modal-background" stylesheets="@styles/edit-profile.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.EditProfileController">
+
+<padding>
+<Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+</padding>
+<children>
+<!-- Close Button (Top Right) -->
+<HBox alignment="CENTER_RIGHT">
     <children>
-        <!-- Close Button (Top Right) -->
-        <HBox alignment="CENTER_RIGHT">
-            <children>
-                <!-- This button calls "onCloseClick" -->
-                <Button fx:id="closeButton" onAction="#onCloseClick" styleClass="modal-close-button" text="X" />
-            </children>
-        </HBox>
+        <Button fx:id="closeButton" onAction="#onCloseClick" styleClass="modal-close-button" text="X" />
+    </children>
+</HBox>
 
-        <Label text="Edit Profile">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </Label>
+<Label styleClass="modal-title" text="Edit Profile" />
 
-        <!-- Profile Picture -->
+<!-- Profile Picture -->
+<StackPane>
+    <children>
         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-picture">
             <image>
-                <Image url="@image/PROFILE ICON.png" />
+                <Image url="@image/profile.png" /> <!-- Make sure you have this image -->
             </image>
             <clip>
                 <Circle centerX="50.0" centerY="50.0" radius="50.0" />
             </clip>
         </ImageView>
+    </children>
+</StackPane>
 
-        <!-- Form Section -->
-        <VBox spacing="10.0">
+<!-- Form Section -->
+<VBox spacing="15.0">
+    <children>
+        <!-- First Name Field -->
+        <VBox spacing="5.0">
             <children>
-                <!-- First Name Field -->
-                <VBox spacing="5.0">
-                    <children>
-                        <Label styleClass="modal-form-label" text="First Name" />
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <TextField promptText="First Name..." styleClass="modal-form-field" text="Christian Carl" HBox.hgrow="ALWAYS" />
-                            <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
-                                <image>
-                                    <Image url="@image/lock-icon.png" /> <!-- Make sure you have this image -->
-                                </image>
-                            </ImageView>
-                        </HBox>
-                        <Separator styleClass="modal-form-separator" />
-                    </children>
-                </VBox>
-
-                <!-- Middle Name Field -->
-                <VBox spacing="5.0">
-                    <children>
-                        <Label styleClass="modal-form-label" text="Middle Name" />
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <TextField promptText="Middle Name..." styleClass="modal-form-field" text="Cualquiera" HBox.hgrow="ALWAYS" />
-                            <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
-                                <image>
-                                    <Image url="@image/lock-icon.png" />
-                                </image>
-                            </ImageView>
-                        </HBox>
-                        <Separator styleClass="modal-form-separator" />
-                    </children>
-                </VBox>
-
-                <!-- Last Name Field -->
-                <VBox spacing="5.0">
-                    <children>
-                        <Label styleClass="modal-form-label" text="Last Name" />
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <TextField promptText="Last Name..." styleClass="modal-form-field" text="Cabalde" HBox.hgrow="ALWAYS" />
-                            <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
-                                <image>
-                                    <Image url="@image/lock-icon.png" />
-                                </image>
-                            </ImageView>
-                        </HBox>
-                        <Separator styleClass="modal-form-separator" />
-                    </children>
-                </VBox>
-
-                <!-- Email Field -->
-                <VBox spacing="5.0">
-                    <children>
-                        <Label styleClass="modal-form-label" text="Email" />
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                            <TextField promptText="Email..." styleClass="modal-form-field" text="cccabalde30858@liceo.edu.ph" HBox.hgrow="ALWAYS" />
-                            <ImageView fitHeight="18.0" fitWidth="18.0" preserveRatio="true">
-                                <image>
-                                    <Image url="@image/lock-icon.png" />
-                                </image>
-                            </ImageView>
-                        </HBox>
-                        <Separator styleClass="modal-form-separator" />
-                    </children>
-                </VBox>
-
-                <!-- Password Field -->
-                <VBox spacing="5.0">
-                    <children>
-                        <Label styleClass="modal-form-label" text="Password" />
-                        <HBox alignment="CENTER_LEFT" spacing="10.0">
-                     <PasswordField styleClass="modal-form-field" promptText="Password..." />
-                            <Region HBox.hgrow="ALWAYS" />
-                        </HBox>
-                        <Separator styleClass="modal-form-separator" />
-                        <HBox alignment="CENTER_RIGHT">
-                            <children>
-                                <Button styleClass="modal-change-password-button" text="Change Password" />
-                            </children>
-                        </HBox>
-                    </children>
-                </VBox>
-
+                <Label styleClass="modal-form-label" text="First Name" />
+                <TextField promptText="First Name..." styleClass="modal-form-field" text="Christian Carl" />
             </children>
         </VBox>
+
+        <!-- Middle Name Field -->
+        <VBox spacing="5.0">
+            <children>
+                <Label styleClass="modal-form-label" text="Middle Name" />
+                <TextField promptText="Middle Name..." styleClass="modal-form-field" text="Cualquiera" />
+            </children>
+        </VBox>
+
+        <!-- Last Name Field -->
+        <VBox spacing="5.0">
+            <children>
+                <Label styleClass="modal-form-label" text="Last Name" />
+                <TextField promptText="Last Name..." styleClass="modal-form-field" text="Cabalde" />
+            </children>
+        </VBox>
+
+        <!-- Email Field -->
+        <VBox spacing="5.0">
+            <children>
+                <Label styleClass="modal-form-label" text="Email" />
+                <TextField promptText="Email..." styleClass="modal-form-field" text="cccabalde30858@liceo.edu.ph" />
+            </children>
+        </VBox>
+
+        <!-- Password Field -->
+        <VBox spacing="5.0">
+            <children>
+                <Label styleClass="modal-form-label" text="Password" />
+                <PasswordField promptText="New Password..." styleClass="modal-form-field" />
+                <HBox alignment="CENTER_RIGHT">
+                    <children>
+                        <Button styleClass="modal-change-password-button" text="Change Password" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+
     </children>
 </VBox>
+</children>
+        </VBox>

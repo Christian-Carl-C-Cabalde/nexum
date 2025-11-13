@@ -1,0 +1,46 @@
+.root-container {
+    /* The main content color will show, so this isn't strictly needed */
+    -fx-background-color: #F4F6F7;
+}
+
+.sidebar {
+    -fx-background-color: #ffffff; /* Reverted to white sidebar */
+    -fx-padding: 20;
+    -fx-alignment: CENTER;
+    -fx-border-color: #e0e0e0; /* Added light border back */
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 10;
+    -fx-background-radius: 10; /* Added radius for hover */
+}
+
+.sidebar-button:hover {
+    -fx-background-color: #f0f0f0; /* Reverted to light gray hover */
+}
+
+.sidebar-button:pressed {
+    -fx-background-color: #e0e0e0; /* Added pressed style back */
+}
+
+.sidebar-button.active {
+    -fx-background-color: rgba(255,255,255,0.25);
+    -fx-border-width: 0 0 0 3px;
+    -fx-border-color: #1abc9c;
+}
+
+/* Style for the logout button (fx:id="logout").
+  This gives it the special red hover effect.
+*/
+#logout:hover {
+    -fx-background-color: rgba(255,80,80,0.2);
+}
+
+
+.main-content {
+    -fx-background-color: #F4F6F7;
+}

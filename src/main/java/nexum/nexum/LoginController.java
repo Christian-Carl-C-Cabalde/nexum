@@ -20,11 +20,9 @@ public class LoginController {
 
     @FXML
     private void handleLoginClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("login-view.fxml"));
+        // Load homepage.fxml
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("homepage.fxml"));
         Scene scene = new Scene(loader.load());
-
-        String styleCss = this.getClass().getResource("application.css").toExternalForm();
-        scene.getStylesheets().add(styleCss);
 
         Stage stage = (Stage) loginBtn.getScene().getWindow();
         stage.setScene(scene);
@@ -33,11 +31,9 @@ public class LoginController {
 
     @FXML
     private void handleForgotPasswordClick() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("forgot-password-view.fxml"));
+        // Load forgot-password.fxml
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("forgot-password.fxml"));
         Scene scene = new Scene(loader.load());
-
-        String styleCss = this.getClass().getResource("application.css").toExternalForm();
-        scene.getStylesheets().add(styleCss);
 
         Stage stage = (Stage) forgotPasswordBtn.getScene().getWindow();
         stage.setScene(scene);
@@ -46,12 +42,9 @@ public class LoginController {
 
     @FXML
     private void handleSignUpClick() throws IOException {
-        // Opens a "signup-view.fxml" when the Sign Up button is clicked
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("signup-view.fxml"));
+        // Load signup.fxml
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("signup.fxml"));
         Scene scene = new Scene(loader.load());
-
-        String styleCss = this.getClass().getResource("application.css").toExternalForm();
-        scene.getStylesheets().add(styleCss);
 
         Stage stage = (Stage) signUpBtn.getScene().getWindow();
         stage.setScene(scene);

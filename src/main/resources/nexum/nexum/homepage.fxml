@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<!--
+  Notice the controller is linked.
+  Make sure your package/class name matches:
+  fx:controller="nexum.nexum.HomepageController"
+-->
+
+<HBox prefHeight="697.0" prefWidth="1035.0" styleClass="root-container" stylesheets="@styles/homepage.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.HomepageController">
+
+    <!-- Sidebar -->
+    <VBox alignment="CENTER" prefHeight="700.0" prefWidth="135.0" styleClass="sidebar">
+        <children>
+
+            <!-- Logo -->
+            <ImageView fitHeight="37.0" fitWidth="60.0" preserveRatio="true">
+                <image>
+                    <!-- Make sure this image path is correct -->
+                    <Image url="@image/logo.png" />
+                </image>
+            </ImageView>
+
+            <!-- Navigation Buttons -->
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="100.0" spacing="25" styleClass="nav-buttons" VBox.vgrow="ALWAYS">
+                <children>
+
+                    <!-- Home Button -->
+                    <Button fx:id="goHome" onAction="#goHome" styleClass="sidebar-button">
+                        <graphic>
+                            <ImageView fitHeight="21.0" fitWidth="17.0" preserveRatio="true">
+                                <image>
+                                    <Image url="@image/home.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                    <!-- Create Button -->
+                    <Button fx:id="goCreate" onAction="#goCreate" styleClass="sidebar-button">
+                        <graphic>
+                            <ImageView fitHeight="21.0" fitWidth="17.0" preserveRatio="true">
+                                <image>
+                                    <Image url="@image/create.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                    <!-- Notification Button -->
+                    <Button fx:id="goNotification" onAction="#goNotification" styleClass="sidebar-button">
+                        <graphic>
+                            <ImageView fitHeight="21.0" fitWidth="17.0" preserveRatio="true">
+                                <image>
+                                    <Image url="@image/notification.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                    <!-- Profile Button -->
+                    <Button fx:id="goProfile" onAction="#goProfile" styleClass="sidebar-button">
+                        <graphic>
+                            <ImageView fitHeight="21.0" fitWidth="17.0" preserveRatio="true">
+                                <image>
+                                    <Image url="@image/profile.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                </children>
+            </VBox>
+
+            <!-- Logout Button -->
+            <Button fx:id="logout" onAction="#logout" styleClass="sidebar-button">
+                <graphic>
+                    <ImageView fitHeight="21.0" fitWidth="17.0" preserveRatio="true">
+                        <image>
+                            <Image url="@image/logout.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+        </children>
+    </VBox>
+
+    <!-- Main Content -->
+    <!--
+      *** THIS IS THE MAIN CHANGE ***
+      I changed AnchorPane to StackPane to automatically center your post.fxml
+    -->
+    <StackPane fx:id="mainContent" prefHeight="698.0" prefWidth="982.0" styleClass="main-content" stylesheets="@styles/homepage.css" />
+
+</HBox>

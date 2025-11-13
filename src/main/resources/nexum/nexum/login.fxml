@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nexum.nexum.LoginController"
+            prefHeight="600.0" prefWidth="600.0">
+
+    <children>
+        <!-- App Logo -->
+        <ImageView layoutX="280.0" layoutY="129.0" fitHeight="41.0" fitWidth="39.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@image/logo.png"/>
+            </image>
+        </ImageView>
+
+        <!-- App Title -->
+        <Label layoutX="214.0" layoutY="148.0" text="Nexum">
+            <font>
+                <Font name="System Bold" size="50.0"/>
+            </font>
+        </Label>
+
+        <!-- Email Field -->
+        <TextField fx:id="emailField" layoutX="127.0" layoutY="246.0"
+                   prefHeight="30.0" prefWidth="346.0" promptText="Email..."/>
+
+        <!-- Password Field -->
+        <PasswordField fx:id="passwordField" layoutX="127.0" layoutY="294.0"
+                       prefHeight="30.0" prefWidth="346.0" promptText="Password..."/>
+
+        <!-- Login Button -->
+        <Button fx:id="loginBtn" layoutX="127.0" layoutY="341.0"
+                prefHeight="30.0" prefWidth="346.0"
+                style="-fx-background-color: black; -fx-text-fill: white;"
+                text="Login" onAction="#handleLoginClick"/>
+
+        <!-- Forgot Password Button -->
+        <Button fx:id="forgotPasswordBtn" layoutX="237.0" layoutY="387.0"
+                prefHeight="30.0" prefWidth="125.0"
+                style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: gray; -fx-cursor: hand;"
+                text="Forgot Password?" underline="true"
+                onAction="#handleForgotPasswordClick"/>
+
+        <!-- OR Label -->
+        <Label layoutX="294.0" layoutY="427.0" text="or"/>
+
+        <!-- Sign Up Button -->
+        <Button fx:id="signUpBtn" layoutX="237.0" layoutY="454.0"
+                prefHeight="30.0" prefWidth="125.0"
+                style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: gray; -fx-cursor: hand;"
+                text="Sign Up" underline="true"
+                onAction="#handleSignUpClick"/>
+    </children>
+</AnchorPane>
