@@ -3,26 +3,49 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.OtpController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="nexum.nexum.OtpController">
 
     <!-- OTP Input Fields -->
     <HBox alignment="CENTER" layoutX="155.0" layoutY="270.0" spacing="10">
-        <TextField fx:id="otp1" alignment="CENTER" maxWidth="45.0" prefHeight="45.0" prefWidth="40.0" />
-        <TextField fx:id="otp2" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0" />
-        <TextField fx:id="otp3" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0" />
-        <TextField fx:id="otp4" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0" />
-        <TextField fx:id="otp5" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0" />
-        <TextField fx:id="otp6" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0" />
+        <TextField fx:id="otp1" alignment="CENTER" maxWidth="45.0" prefHeight="45.0" prefWidth="40.0"/>
+        <TextField fx:id="otp2" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0"/>
+        <TextField fx:id="otp3" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0"/>
+        <TextField fx:id="otp4" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0"/>
+        <TextField fx:id="otp5" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0"/>
+        <TextField fx:id="otp6" alignment="CENTER" maxWidth="40" prefHeight="45.0" prefWidth="40.0"/>
     </HBox>
 
     <!-- Header -->
-    <Label layoutX="250.0" layoutY="185.0" style="-fx-font-size: 20px; -fx-font-weight: bold;" styleClass="verifyOtpLabel" text="Verify OTP" />
+    <Label layoutX="250.0" layoutY="185.0"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;"
+           styleClass="verifyOtpLabel"
+           text="Verify OTP"/>
 
     <!-- Subtext -->
-    <Label fx:id="emailLabel" layoutX="212.0" layoutY="232.0" style="-fx-font-size: 12px;" styleClass="weveSentAnOtpLabel" text="We’ve sent an OTP to your email." />
+    <Label fx:id="emailLabel" layoutX="212.0" layoutY="232.0"
+           style="-fx-font-size: 12px;"
+           styleClass="weveSentAnOtpLabel"
+           text="We’ve sent an OTP to your email." />
 
     <!-- Go Back Button -->
-    <Button fx:id="backButton" layoutX="258.0" layoutY="402.0" onAction="#handleBackClick" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: transparent;" styleClass="goBackBtn" text="Go Back" underline="true" />
-   <Button layoutX="155.0" layoutY="336.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="290.0" text="Continue" />
+    <Button fx:id="backButton"
+            layoutX="258.0" layoutY="402.0"
+            onAction="#handleBackClick"
+            prefHeight="30.0" prefWidth="84.0"
+            style="-fx-background-color: transparent;"
+            styleClass="goBackBtn"
+            text="Go Back"
+            underline="true"/>
+
+    <!-- Continue Button -->
+    <Button fx:id="confirmBtn"
+            layoutX="155.0" layoutY="336.0"
+            mnemonicParsing="false"
+            prefHeight="48.0" prefWidth="290.0"
+            text="Continue"
+            onAction="#handleConfirmClick"/>
 
 </AnchorPane>

@@ -1,68 +1,84 @@
 package nexum.nexum;
 
+import data.users.User;
+import data.users.UsersRepository;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 public class ResetPasswordController {
 
-    @FXML
-    private PasswordField newPasswordField;
-
-    @FXML
-    private PasswordField confirmPasswordField;
+    @FXML private PasswordField newPasswordField;
+    @FXML private PasswordField confirmPasswordField;
+    @FXML private Button resetBtn;
+    @FXML private Button backBtn;
 
     @FXML
     private void handleResetClick() {
-        String newPassword = newPasswordField.getText();
-        String confirmPassword = confirmPasswordField.getText();
 
-        if (newPassword.isEmpty() || confirmPassword.isEmpty()) {
-            showAlert("Please fill out both fields.");
+        String newPass = newPasswordField.getText().trim();
+        String confirm = confirmPasswordField.getText().trim();
+
+        if (newPass.isEmpty() || confirm.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Validation Error", "All fields are required.");
             return;
         }
 
-        if (!newPassword.equals(confirmPassword)) {
-            showAlert("Passwords do not match. Try again.");
+        if (!newPass.equals(confirm)) {
+            showAlert(Alert.AlertType.ERROR, "Password Mismatch", "Passwords do not match!");
             return;
         }
 
-        // ✅ If passwords match, go to Login (Sign-In) screen
-        showAlert("Password successfully reset!");
-        goToLoginScene();
+        String email = ResetPasswordState.emailForReset;
+
+        if (email == null) {
+            showAlert(Alert.AlertType.ERROR, "Error", "No email loaded for password reset.");
+            return;
+        }
+
+        User user = UsersRepository.findByEmail(email);
+
+        if (user == null) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Could not find user.");
+            return;
+        }
+
+        // Update password
+        user.setPassword(newPass);
+
+        showAlert(Alert.AlertType.INFORMATION, "Success", "Password has been reset!");
+
+        loadScene("login.fxml", resetBtn);
     }
 
-    // Switch scene to login or home screen
-    private void goToLoginScene() {
+    @FXML
+    private void handleBackClick() {
+        loadScene("otp-view.fxml", backBtn);
+    }
+
+    private void loadScene(String fxml, Button btn) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("signin-view.fxml")); // ← change if your login FXML name differs
-            Scene scene = new Scene(loader.load());
-
-            // ✅ Add CSS
-            String css = this.getClass().getResource("application.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            Stage stage = (Stage) newPasswordField.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btn.getScene().getWindow();
             stage.setScene(scene);
-            stage.setTitle("Nexum - Sign In");
-            stage.show();
-
-        } catch (IOException e) {
+            stage.centerOnScreen();
+        } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Error loading Sign In screen.");
         }
     }
 
-    // Alert helper
-    private void showAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Reset Password");
+    // --- FIXED showAlert method (now accepts title + message) ---
+    private void showAlert(Alert.AlertType type, String title, String msg) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText(msg);
         alert.showAndWait();
     }
 }

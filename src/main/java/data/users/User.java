@@ -9,7 +9,7 @@ public class User {
     private String userLastName;
     private String password;
 
-    // NEW constructor that accepts middle name
+    // Constructor with middle name
     public User(String userId, String email, String userFirstName, String userMiddleName, String userLastName, String password) {
         this.userId = userId;
         this.email = email;
@@ -19,8 +19,7 @@ public class User {
         this.password = password;
     }
 
-    // If you still have older code that used the 5-arg constructor (without middle name),
-    // keep this convenience constructor as well (optional):
+    // Convenience constructor without middle name
     public User(String userId, String email, String userFirstName, String userLastName, String password) {
         this(userId, email, userFirstName, "", userLastName, password);
     }
@@ -33,5 +32,8 @@ public class User {
     public String getUserLastName() { return userLastName; }
     public String getPassword() { return password; }
 
-    // Optionally add setters if you need to mutate fields later
+    // --- Added this so you can update the password ---
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

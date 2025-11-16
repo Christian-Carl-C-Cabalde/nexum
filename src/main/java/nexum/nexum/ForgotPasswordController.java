@@ -1,47 +1,75 @@
 package nexum.nexum;
 
-import javafx.event.ActionEvent;
+import data.users.User;
+import data.users.UsersRepository;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class ForgotPasswordController {
 
-    @FXML
-    private TextField emailField;
+    @FXML private TextField emailField;
+    @FXML private Button searchBtn;
+    @FXML private Button backToLoginBtn;
 
     @FXML
-    private Button loginBtn;
+    private void handleSearchClick() {
+        String email = emailField.getText().trim();
 
-    /**
-     * Called when the "Back to Login" button is clicked.
-     * This will load the login.fxml scene.
-     */
+        if (email.isEmpty()) {
+            showAlert(Alert.AlertType.WARNING, "Validation Error", "Please enter your email.");
+            return;
+        }
+
+        User user = UsersRepository.findByEmail(email);
+
+        if (user == null) {
+            showAlert(Alert.AlertType.ERROR, "Account Not Found", "No account found with that email.");
+            return;
+        }
+
+        // Store this email temporarily (for OTP + new password)
+        ResetPasswordState.emailForReset = email;
+
+        loadScene("otp-view.fxml");
+    }
+
     @FXML
-    void handleLoginClick(ActionEvent event) {
+    private void handleBackToLoginClick() {
+        loadScene("login.fxml");
+    }
+
+    private void loadScene(String fxml) {
         try {
-            // Load the login.fxml file
-            Parent loginView = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            Scene scene = new Scene(root);
 
-            // Create a new Scene with the login view
-            Scene loginScene = new Scene(loginView);
+            // get current stage via any node in the window:
+            Stage stage = (Stage) emailField.getScene().getWindow();
 
-            // Get the current Stage (the window) from the button
-            Stage currentStage = (Stage) loginBtn.getScene().getWindow();
-
-            // Set the new scene on the stage
-            currentStage.setScene(loginScene);
-            currentStage.setTitle("Login");
-            currentStage.centerOnScreen();
-
-        } catch (IOException e) {
+            stage.setScene(scene);
+            stage.centerOnScreen();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+    private void showAlert(Alert.AlertType type, String msg, String header) {
+        Alert alert = new Alert(type);
+        alert.setHeaderText(header);
+        alert.setContentText(msg);
+        alert.showAndWait();
+    }
+
+    private void showAlert(Alert.AlertType type, String msg) {
+        showAlert(type, msg, null);
+    }
+
+
 }
