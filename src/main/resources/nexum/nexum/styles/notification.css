@@ -1,0 +1,58 @@
+/* notification.css */
+
+/* The root VBox of the notification page */
+.notification-root {
+    -fx-background-color: #f0f2f5;
+    -fx-padding: 20px;
+}
+
+/* The "Notifications" title label */
+.notification-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding-bottom: 10px; /* Add some space below the title */
+}
+
+/* This is the style for a single notification card (the HBox) */
+.notification-card {
+    -fx-background-color: #ffffff;
+    -fx-padding: 15px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 5, 0, 0, 2);
+    -fx-alignment: CENTER_LEFT; /* Vertically center the icon and text */
+}
+
+/* Add a slight grow effect on hover */
+.notification-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.12), 8, 0, 0, 4);
+    -fx-scale-x: 1.005;
+    -fx-scale-y: 1.005;
+}
+
+/* The icon (flame, comment, star) */
+.notification-icon {
+    /* You can add more styles here if needed */
+}
+
+/* The TextFlow that holds the notification text */
+.notification-text-flow {
+    -fx-font-size: 14px;
+}
+
+/* The person who did the action (e.g., "John Doe") */
+.notification-text-actor {
+    -fx-font-weight: bold;
+    -fx-fill: #1a1a1a;
+}
+
+/* The action text (e.g., "liked your post:") */
+.notification-text-action {
+    -fx-fill: #555;
+}
+
+/* The post snippet (e.g., "'This is the post...") */
+.notification-text-snippet {
+    -fx-fill: #777;
+    -fx-font-style: italic;
+}

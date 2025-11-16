@@ -108,3 +108,18 @@
 .post-button:hover {
     -fx-background-color: #333; /* Dark gray on hover */
 }
+
+.remove-image-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E53935; /* Red text */
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent;
+    -fx-padding: 2px 5px;
+    -fx-cursor: hand;
+}
+
+.remove-image-button:hover {
+    -fx-background-color: #FFEBEE; /* Light red background on hover */
+    -fx-background-radius: 4px;
+}

@@ -1,0 +1,140 @@
+/* --- PostCard.css --- */
+
+/* The main container for the entire post card */
+.post-card {
+    -fx-background-color: #ffffff;
+    -fx-padding: 15px;
+    -fx-border-color: #e0e0e0; /* Light grey border */
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+/* The placeholder circle for the user's avatar */
+.user-icon-circle {
+    -fx-fill: #c0c0c0; /* Placeholder grey */
+}
+
+/* The author's name */
+.author-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* The author's email or secondary info */
+.email-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #777; /* Dark grey text */
+}
+
+/* The main text content of the post */
+.content-label {
+    -fx-font-size: 16px;
+    -fx-wrap-text: true;
+    -fx-padding: 10px 0px; /* Add some space above/below */
+}
+
+/* A generic class for all icon-style buttons */
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 13px;
+    -fx-text-fill: #555;
+    -fx-font-weight: bold;
+}
+
+/* Change background on hover to show feedback */
+.icon-button:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 4px;
+}
+
+/* The "..." more options button */
+.more-button {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+/* The VBox that holds the "Write a comment..." section in PostDetail.fxml */
+.comment-section {
+    -fx-border-color: #e0e0e0 transparent transparent transparent; /* Border on top only */
+    -fx-padding: 15px 0px 0px 0px; /* Padding on top only */
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* The text field for writing a new comment */
+.comment-field {
+    -fx-background-color: #f0f2f5; /* Light grey background */
+    -fx-background-radius: 18px; /* Makes it pill-shaped */
+    -fx-border-radius: 18px;
+    -fx-prompt-text-fill: #666;
+}
+
+/* The "Send" button for comments */
+.send-button {
+    -fx-background-color: #3f51b5; /* Example: Indigo color */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px 15px;
+}
+
+.send-button:hover {
+    -fx-background-color: #303f9f; /* Slightly darker on hover */
+}
+
+/* ... (all your existing styles) ... */
+
+.liked-button {
+    /* A bright blue to show it's active */
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+}
+
+/* Make the icon white too */
+.liked-button .image-view {
+    -fx-effect: innershadow(gaussian, white, 10, 0.5, 0, 0);
+}
+
+.starred-button {
+    -fx-background-color: #ffc107; /* A nice gold/yellow color */
+    -fx-text-fill: white;
+}
+
+.starred-button .image-view {
+    -fx-effect: innershadow(gaussian, white, 10, 0.5, 0, 0);
+}
+
+.delete-context-menu {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+/* This styles the "Delete" item */
+.delete-menu-item .label {
+    -fx-text-fill: red; /* Make the text red */
+    -fx-font-weight: bold;
+}
+
+/* This styles the "Delete" item when it's hovered or focused */
+.delete-menu-item:focused {
+    -fx-background-color: #F04444; /* Set a red background on hover */
+}
+
+.delete-menu-item:focused .label {
+    -fx-text-fill: white; /* Make the text white on hover */
+}
+
+.post-image {
+    /* These properties help round the corners of the border */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+
+    /* A light border */
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+
+    /* This makes the image look less pixelated */
+    -fx-smooth: true;
+}

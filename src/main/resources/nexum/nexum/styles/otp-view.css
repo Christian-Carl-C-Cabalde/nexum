@@ -1,0 +1,65 @@
+/* Root background */
+.root {
+    -fx-background-color: #F7F9FB;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Title */
+.title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Subtitle */
+.subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+}
+
+/* OTP Boxes */
+.otp-box {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-background-color: white;
+    -fx-border-color: #CCD1D9;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 0;
+}
+
+.otp-box:focused {
+    -fx-border-color: #4B7BEC;
+    -fx-effect: dropshadow(gaussian, rgba(75,126,236,0.3), 10, 0, 0, 0);
+}
+
+/* Continue Button */
+.continue-btn {
+    -fx-background-color: #4B7BEC;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.continue-btn:hover {
+    -fx-background-color: #3a64d8;
+}
+
+.continue-btn:pressed {
+    -fx-background-color: #2c4eb6;
+}
+
+/* Back Button */
+.back-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4B7BEC;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.back-btn:hover {
+    -fx-text-fill: #2c4eb6;
+}

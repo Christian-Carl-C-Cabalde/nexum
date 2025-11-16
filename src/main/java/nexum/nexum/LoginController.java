@@ -15,23 +15,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+// (NEW) 1. Import the HomepageController
+
+
 public class LoginController {
 
-    @FXML
-    private TextField emailField;
+    @FXML private TextField emailField;
+    @FXML private PasswordField passwordField;
+    @FXML private Button loginBtn;
+    @FXML private Button forgotPasswordBtn;
+    @FXML private Button signUpBtn;
 
-    @FXML
-    private PasswordField passwordField;
-
-    @FXML
-    private Button loginBtn;
-
-    @FXML
-    private Button forgotPasswordBtn;
-
-    @FXML
-    private Button signUpBtn;
-
+    // ... (your showWarning, requireField, and loadScene methods are fine) ...
     private void showWarning(String msg) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText(null);
@@ -63,6 +58,7 @@ public class LoginController {
         }
     }
 
+
     @FXML
     void handleLoginClick(ActionEvent event) {
 
@@ -77,7 +73,6 @@ public class LoginController {
         String email = emailField.getText().trim();
         String password = passwordField.getText().trim();
 
-        // ⭐ LOOKUP USER IN LOCAL DATABASE
         User user = UsersRepository.findByEmail(email);
 
         if (user == null) {
@@ -85,14 +80,38 @@ public class LoginController {
             return;
         }
 
-        // ⭐ PASSWORD CHECK
         if (!user.getPassword().equals(password)) {
             showWarning("Incorrect password.");
             return;
         }
 
-        // SUCCESS → GO TO HOMEPAGE
-        loadScene(event, "homepage.fxml", "Nexum - Home");
+        // (CHANGED) 2. We can't use the simple loadScene anymore.
+        // We must load the FXML manually to get the controller.
+
+        try {
+            // Create a new FXML Loader
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+
+            // Load the FXML file
+            Parent root = loader.load();
+
+            // Get the controller (HomepageController)
+            DashboardController DashboardController = loader.getController();
+
+            // *** THIS IS THE MOST IMPORTANT STEP ***
+            // Pass the logged-in user to the homepage
+            DashboardController.setUser(user);
+
+            // Now, show the new scene
+            Scene scene = new Scene(root);
+            Stage currentStage = (Stage) loginBtn.getScene().getWindow();
+            currentStage.setScene(scene);
+            currentStage.setTitle("Nexum - Home");
+            currentStage.centerOnScreen();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

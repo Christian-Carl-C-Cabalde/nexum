@@ -14,82 +14,87 @@
 
 <VBox fx:id="modalRoot" alignment="TOP_CENTER" maxHeight="615.0" maxWidth="380.0" minHeight="615.0" minWidth="380.0" prefHeight="615.0" prefWidth="380.0" spacing="15.0" styleClass="modal-background" stylesheets="@styles/edit-profile.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.EditProfileController">
 
-<padding>
-<Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
-</padding>
-<children>
-<!-- Close Button (Top Right) -->
-<HBox alignment="CENTER_RIGHT">
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+    </padding>
     <children>
-        <Button fx:id="closeButton" onAction="#onCloseClick" styleClass="modal-close-button" text="X" />
-    </children>
-</HBox>
-
-<Label styleClass="modal-title" text="Edit Profile" />
-
-<!-- Profile Picture -->
-<StackPane>
-    <children>
-        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-picture">
-            <image>
-                <Image url="@image/profile.png" /> <!-- Make sure you have this image -->
-            </image>
-            <clip>
-                <Circle centerX="50.0" centerY="50.0" radius="50.0" />
-            </clip>
-        </ImageView>
-    </children>
-</StackPane>
-
-<!-- Form Section -->
-<VBox spacing="15.0">
-    <children>
-        <!-- First Name Field -->
-        <VBox spacing="5.0">
+        <!-- Close Button (Top Right) -->
+        <HBox alignment="CENTER_RIGHT">
             <children>
-                <Label styleClass="modal-form-label" text="First Name" />
-                <TextField promptText="First Name..." styleClass="modal-form-field" text="Christian Carl" />
+                <Button fx:id="closeButton" onAction="#onCloseClick" styleClass="modal-close-button" text="X" />
             </children>
-        </VBox>
+        </HBox>
 
-        <!-- Middle Name Field -->
-        <VBox spacing="5.0">
+        <Label styleClass="modal-title" text="Edit Profile" />
+
+        <!-- Profile Picture -->
+        <StackPane>
             <children>
-                <Label styleClass="modal-form-label" text="Middle Name" />
-                <TextField promptText="Middle Name..." styleClass="modal-form-field" text="Cualquiera" />
+                <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-picture">
+                    <image>
+                        <Image url="@image/profile.png" /> <!-- Make sure you have this image -->
+                    </image>
+                    <clip>
+                        <Circle centerX="50.0" centerY="50.0" radius="50.0" />
+                    </clip>
+                </ImageView>
             </children>
-        </VBox>
+        </StackPane>
 
-        <!-- Last Name Field -->
-        <VBox spacing="5.0">
+        <!--
+          FORM SECTION (CORRECTED)
+          - Added fx:id to all form fields
+          - Removed hard-coded text from fields
+          - Added onAction to "Change Password" button
+        -->
+        <VBox spacing="15.0">
             <children>
-                <Label styleClass="modal-form-label" text="Last Name" />
-                <TextField promptText="Last Name..." styleClass="modal-form-field" text="Cabalde" />
-            </children>
-        </VBox>
-
-        <!-- Email Field -->
-        <VBox spacing="5.0">
-            <children>
-                <Label styleClass="modal-form-label" text="Email" />
-                <TextField promptText="Email..." styleClass="modal-form-field" text="cccabalde30858@liceo.edu.ph" />
-            </children>
-        </VBox>
-
-        <!-- Password Field -->
-        <VBox spacing="5.0">
-            <children>
-                <Label styleClass="modal-form-label" text="Password" />
-                <PasswordField promptText="New Password..." styleClass="modal-form-field" />
-                <HBox alignment="CENTER_RIGHT">
+                <!-- First Name Field -->
+                <VBox spacing="5.0">
                     <children>
-                        <Button styleClass="modal-change-password-button" text="Change Password" />
+                        <Label styleClass="modal-form-label" text="First Name" />
+                        <TextField fx:id="firstNameField" promptText="First Name..." styleClass="modal-form-field" />
                     </children>
-                </HBox>
+                </VBox>
+
+                <!-- Middle Name Field -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="modal-form-label" text="Middle Name" />
+                        <TextField fx:id="middleNameField" promptText="Middle Name..." styleClass="modal-form-field" />
+                    </children>
+                </VBox>
+
+                <!-- Last Name Field -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="modal-form-label" text="Last Name" />
+                        <TextField fx:id="lastNameField" promptText="Last Name..." styleClass="modal-form-field" />
+                    </children>
+                </VBox>
+
+                <!-- Email Field -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="modal-form-label" text="Email" />
+                        <TextField fx:id="emailField" promptText="Email..." styleClass="modal-form-field" />
+                    </children>
+                </VBox>
+
+                <!-- Password Field -->
+                <VBox spacing="5.0">
+                    <children>
+                        <Label styleClass="modal-form-label" text="Password" />
+                        <PasswordField fx:id="passwordField" promptText="New Password..." styleClass="modal-form-field" />
+                        <HBox alignment="CENTER_RIGHT">
+                            <children>
+                                <Button onAction="#onSaveClick" styleClass="modal-change-password-button" text="Change Password" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+
             </children>
         </VBox>
-
     </children>
 </VBox>
-</children>
-        </VBox>

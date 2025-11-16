@@ -7,17 +7,17 @@
 <!--
   Notice the controller is linked.
   Make sure your package/class name matches:
-  fx:controller="nexum.nexum.HomepageController"
+  fx:controller="nexum.nexum.DashboardControllerController"
 -->
 
-<HBox prefHeight="697.0" prefWidth="1035.0" styleClass="root-container" stylesheets="@styles/homepage.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.HomepageController">
+<HBox prefHeight="697.0" prefWidth="1035.0" styleClass="root-container" stylesheets="@styles/homepage.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.DashboardController">
 
     <!-- Sidebar -->
     <VBox alignment="CENTER" prefHeight="700.0" prefWidth="135.0" styleClass="sidebar">
         <children>
 
             <!-- Logo -->
-            <ImageView fitHeight="37.0" fitWidth="60.0" preserveRatio="true">
+            <ImageView fitHeight="29.0" fitWidth="50.0" preserveRatio="true">
                 <image>
                     <!-- Make sure this image path is correct -->
                     <Image url="@image/logo.png" />

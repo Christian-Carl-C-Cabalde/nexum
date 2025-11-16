@@ -41,15 +41,15 @@ public class SignUpController {
             return;
         }
 
-        // Basic email check
-        if (!email.contains("@")) {
-            showAlert(Alert.AlertType.ERROR, "Invalid Email", "Email must contain '@'.");
+        // Only allow liceo.edu.ph emails
+        if (!email.endsWith("@liceo.edu.ph")) {
+            showAlert(Alert.AlertType.ERROR, "Invalid Email", "Email must end with '@liceo.edu.ph'.");
             return;
         }
 
         // Check if email already exists
         if (UsersRepository.findByEmail(email) != null) {
-            showAlert(Alert.AlertType.ERROR, "Duplicate Email", "That email is already registered.");
+            showAlert(Alert.AlertType.ERROR, "Registered Email", "That email is already registered.");
             return;
         }
 

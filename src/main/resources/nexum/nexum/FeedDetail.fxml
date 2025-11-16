@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Import all necessary JavaFX and Java classes
+-->
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<!--
+  This is the root VBox for the *entire* detail screen
+  - fx:controller links to FeedDetailController
+-->
+
+<VBox spacing="10" stylesheets="@styles/feeds.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.FeedDetailController">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <children>
+
+        <!-- Back Button -->
+        <HBox alignment="CENTER_LEFT">
+            <children>
+                <Button fx:id="backButton" onAction="#onBackClicked" styleClass="icon-button" text="&lt; Back to Feed" />
+            </children>
+            <VBox.margin>
+                <Insets bottom="10" left="-10" />
+            </VBox.margin>
+        </HBox>
+
+        <!--
+          This VBox is the actual "card" with the white background and border
+        -->
+        <VBox spacing="10" styleClass="post-card" HBox.hgrow="ALWAYS">
+            <children>
+
+                <!-- Post Author Info -->
+                <BorderPane>
+                    <left>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <children>
+                                <Circle radius="20" styleClass="user-icon-circle" />
+                                <VBox>
+                                    <children>
+                                        <Label fx:id="authorNameLabel" styleClass="author-label" text="Author Name" />
+                                        <Label fx:id="emailLabel" styleClass="email-label" text="author@email.com" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </left>
+                    <right>
+                        <!-- "Three Dots" Options Button -->
+                        <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#onOptionsClicked" styleClass="icon-button, more-button" text="•••" />
+                    </right>
+                </BorderPane>
+
+                <!-- Post Content Label -->
+                <Label fx:id="contentLabel" styleClass="content-label" text="This is the post content..." />
+
+                <!--
+                  NEW: Post Image View
+                  - This ImageView is hidden by default and will be
+                  - made visible by the controller if the post has an image.
+                -->
+                <ImageView fx:id="postImageView" fitWidth="450.0" managed="false" pickOnBounds="true" preserveRatio="true" visible="false" />
+
+                <!--
+                  Action Bar:
+                  Contains all buttons and count labels
+                -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <children>
+
+                        <!-- LIKE BUTTON -->
+                        <Button fx:id="likeButton" mnemonicParsing="false" onAction="#onLikeClicked" styleClass="icon-button">
+                            <graphic>
+                                <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@image/flame.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <!-- Like Count Label -->
+                        <Label fx:id="likeCountLabel" styleClass="count-label" text="0" />
+
+                        <!-- COMMENT BUTTON -->
+                        <Button fx:id="commentButton" mnemonicParsing="false" styleClass="icon-button">
+                            <graphic>
+                                <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@image/comment.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <!-- Comment Count Label -->
+                        <Label fx:id="commentCountLabel" styleClass="count-label" text="0" />
+
+                        <!-- STAR BUTTON -->
+                        <Button fx:id="starButton" mnemonicParsing="false" onAction="#onStarClicked" styleClass="icon-button">
+                            <graphic>
+                                <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@image/star.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+
+                    </children>
+                </HBox>
+
+                <!--
+                  Comment List
+                  - VBox.vgrow is the correct property to make the ScrollPane expand
+                -->
+                <ScrollPane fx:id="commentScrollPane" hbarPolicy="NEVER" prefHeight="200" style="-fx-background-color: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS">
+                    <content>
+                        <VBox fx:id="commentListVBox" spacing="10" />
+                    </content>
+                </ScrollPane>
+
+                <!--
+                  Comment Input Box
+                -->
+                <HBox fx:id="commentSection" spacing="10" styleClass="comment-section">
+                    <children>
+                        <Circle radius="18" styleClass="user-icon-circle" />
+                        <TextField fx:id="commentTextField" promptText="Write a comment..." styleClass="comment-field" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="postCommentButton" onAction="#onPostComment" styleClass="send-button" text="Send" />
+                    </children>
+                </HBox>
+
+            </children>
+        </VBox>
+
+    </children>
+</VBox>

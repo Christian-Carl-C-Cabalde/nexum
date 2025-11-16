@@ -12,7 +12,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         Scene scene = new Scene(loader.load());
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Nexum App");
+        primaryStage.setTitle("Nexum - Login");
         primaryStage.setResizable(false); // Lock resizing
         primaryStage.show();
     }

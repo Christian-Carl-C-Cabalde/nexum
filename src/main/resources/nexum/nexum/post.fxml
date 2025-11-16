@@ -2,26 +2,16 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<!--
-  This file will be loaded *inside* the homepage.
-  It links to its own stylesheet, "post-style.css"
--->
-
-<VBox maxHeight="400" maxWidth="600" minHeight="300" minWidth="400" prefHeight="350" prefWidth="500" spacing="12" styleClass="main-container" stylesheets="@styles/post.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
-
-    <!--
-      Note: I added min/max width/height so it doesn't get
-      too small or too big if the main window resizes.
-    -->
-
+<VBox maxHeight="600" maxWidth="600" minHeight="300" minWidth="400" prefHeight="500" prefWidth="500" spacing="12" styleClass="main-container" stylesheets="@styles/post.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nexum.nexum.PostController">
     <padding>
         <Insets bottom="15" left="20" right="20" top="15" />
     </padding>
 
-    <!-- Top Bar: Title and Close Button -->
+    <!-- ... (Top Bar and User Info Section are unchanged) ... -->
     <BorderPane>
         <center>
             <Label styleClass="title-label" text="Post and Connect" />
@@ -32,8 +22,6 @@
             </StackPane>
         </right>
     </BorderPane>
-
-    <!-- User Info Section -->
     <HBox alignment="CENTER_LEFT" spacing="10" styleClass="user-info-box">
         <children>
             <StackPane styleClass="user-icon-pane">
@@ -41,29 +29,48 @@
             </StackPane>
             <VBox>
                 <children>
-                    <Label styleClass="username-label" text="User2" />
-                    <Label styleClass="user-email-label" text="user123@liceo.edu.ph" />
+                    <Label fx:id="usernameLabel" styleClass="username-label" />
+                    <Label fx:id="emailLabel" styleClass="user-email-label" />
                 </children>
             </VBox>
         </children>
     </HBox>
-
-    <!-- Separator Line -->
     <Separator styleClass="separator-line" />
 
     <!-- Main Text Area -->
-    <TextArea fx:id="threadTextArea" promptText="Write a thread..." styleClass="thread-textarea" VBox.vgrow="ALWAYS" />
+    <TextArea fx:id="threadTextArea" promptText="Write a thread..." styleClass="thread-textarea" stylesheets="@styles/post.css" VBox.vgrow="ALWAYS" />
+
+    <!--
+      =======================================================
+      NEW: Image Preview Area
+      =======================================================
+    -->
+    <VBox fx:id="imagePreviewContainer" alignment="CENTER" managed="false" spacing="5" visible="false">
+        <children>
+            <ImageView fx:id="imagePreview" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="removeImageButton" onAction="#onRemoveImage" styleClass="icon-button" text="Remove Image" />
+        </children>
+    </VBox>
+    <!-- ======================================================= -->
 
     <!-- Bottom Bar: Image Icon and Post Button -->
     <BorderPane>
         <left>
-            <StackPane styleClass="image-icon-pane">
-                <SVGPath content="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" styleClass="image-icon-svg" />
-            </StackPane>
+            <!--
+              THIS BUTTON IS NOW FUNCTIONAL
+              - Added fx:id="attachImageButton"
+              - Added onAction="#onAttachImage"
+            -->
+            <Button fx:id="attachImageButton" onAction="#onAttachImage" styleClass="icon-button">
+                <graphic>
+                    <StackPane styleClass="image-icon-pane">
+                        <SVGPath content="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" styleClass="image-icon-svg" />
+                    </StackPane>
+                </graphic>
+            </Button>
         </left>
         <right>
             <Button fx:id="postButton" styleClass="post-button" text="Post" />
         </right>
     </BorderPane>
-
 </VBox>
